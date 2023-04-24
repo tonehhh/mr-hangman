@@ -6,7 +6,7 @@ def get_word():
     return word.upper()
 
 def play(word):
-    word_completion = "_" len(word)
+    word_completion = "_" * len(word)
     guessed = False
     guessed_letters = []
     guessed_words = []
@@ -25,9 +25,9 @@ def play(word):
                 tries -= 1
                 guessed_letters.append(guess)
             else:
-                print("Good job," guess, "is in the word!")
+                print("Good job,", guess, "is in the word!")
                 guessed_letters.append(guess)
-                word-as_list = list(word_completion)
+                wordas_list = list(word_completion)
                 indicies = [i for i, letter in enumerate(word) if letter == guess]
                 for index in indicies:
                     word_as_list[index] = guess
@@ -37,14 +37,14 @@ def play(word):
                 
         elif len(guess) == len(word) and guess.isalpha():
             if guess in guessed_words:
-                print("You've already guessed teh word", guess)
+                print("You've already guessed the word", guess)
             elif guess != word:
                 print(guess, "is not in the word")
                 tries -= 1
                 guessed_words.append(guess)
             else:
                 guessed = True
-                word-completion = word
+                word_completion = word
 
         else:
             print("Nota  valid guess.")
@@ -55,6 +55,81 @@ def play(word):
             print("Congrats, you guessed teh word! You Win!")
         else:
             print("Sorry, you ran out of tries. The word was " + word + ".Maybe try next time!")
+
+def display_hangman(tries):
+    stages = [  # final state: head, torso, both arms, and both legs
+                """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|/
+                   |      |
+                   |     / \\
+                   -
+                """,
+                # head, torso, both arms, and one leg
+                """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|/
+                   |      |
+                   |     / 
+                   -
+                """,
+                # head, torso, and both arms
+                """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|/
+                   |      |
+                   |      
+                   -
+                """,
+                # head, torso, and one arm
+                """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|
+                   |      |
+                   |     
+                   -
+                """,
+                # head and torso
+                """
+                   --------
+                   |      |
+                   |      O
+                   |      |
+                   |      |
+                   |     
+                   -
+                """,
+                # head
+                """
+                   --------
+                   |      |
+                   |      O
+                   |    
+                   |      
+                   |     
+                   -
+                """,
+                # initial empty state
+                """
+                   --------
+                   |      |
+                   |      
+                   |    
+                   |      
+                   |     
+                   -
+                """
+    ]
+    return stages[tries]
+
 
 def main():
     word = get_word()
