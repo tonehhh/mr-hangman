@@ -1,3 +1,4 @@
+# random list of words to be guessed
 word_list = [
     'wares',
     'soup',
