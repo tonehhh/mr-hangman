@@ -154,7 +154,7 @@ def main():
  |_|  |_|_|(_) |_||_\\__,_|_||_\\__, |_|_|_\\__,_|_||_|
                               |___/
     """)
-    username = input("Please enter your username: ")
+    username = input("Enter your username: ")
     word = get_word()
     play(word)
     while input("Play Again? (Y/N)").upper() == "Y":
