@@ -1,6 +1,5 @@
-# import necessary libraries
 import random
-from words import word_list # contains list of words for the game in words.py file
+from words import word_list # contains list of words for the game in words.py
 
 
 def get_word():
@@ -9,17 +8,19 @@ def get_word():
     return word.upper()
 
 
-def play(word):
+def play(word, username=None):
+    if not username:
+        username = input("Please eneter your username: ")
+        print(f"Welcome {username}! Let's play Mr. Hnagman!")
+
     # creates the initial state of the game
     word_completion = "_" * len(word)
     guessed = False
     guessed_letters = []
     guessed_words = []
     tries = 6
-    username = input("Please enter your username: ") # promt the user to enter their username
 
     # prints the welcome message and initial game state
-    print(f"Welcome {username}! Let's play Mr. Hangman!")
     print(display_hangman(tries))
     print(word_completion)
     print("\n")
@@ -86,6 +87,13 @@ def play(word):
             print("\n")
 
     print("\n")
+
+    replay = input("Would you like to play again? (Y/N)").upper()
+
+    if replay == "Y":
+        play(get_word(), username=username)
+    else:
+        print(f"Thanks for playing {username}!")
 
 
 # this function returns a string that represents the hangman state based on number of tries remaining
@@ -182,11 +190,5 @@ def main():
     # starts the game
     play(word)
     
-    # asks the user if they want to play again
-    while input("Play Again? (Y/N)").upper() == "Y":
-        word = get_word()
-        play(word)
-
-
 if __name__ == "__main__":
     main()
