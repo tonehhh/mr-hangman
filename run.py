@@ -60,6 +60,7 @@ def play(word):
         if guessed:
             print("Congrats, you guessed the word! You Win!")
         elif tries == 0:
+            print(display_hangman(tries))
             print("Sorry, you ran out of tries. The word was " + word + ". Better luck next time!")
         else:
             print("You have", tries, "tries left.")
@@ -153,7 +154,7 @@ def main():
  |_|  |_|_|(_) |_||_\\__,_|_||_\\__, |_|_|_\\__,_|_||_|
                               |___/
     """)
-    username = input ("Please enter your username: ")
+    username = input("Please enter your username: ")
     word = get_word()
     play(word)
     while input("Play Again? (Y/N)").upper() == "Y":
