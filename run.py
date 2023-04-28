@@ -54,7 +54,7 @@ def play(word, username=None):
         elif len(guess) == len(word) and guess.isalpha():
             # checks if the word has already been guessed
             if guess in guessed_words:
-                print("You've already guessed the word", guess)
+                print("You've already guessed that word", guess)
             # checks if the word is not the correct word
             elif guess != word:
                 print(guess, "is not the word")

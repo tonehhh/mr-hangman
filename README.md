@@ -18,7 +18,7 @@ This function is the main game loop. It takes a username parameter, which is the
 This function returns a string that represents the hangman state based on the number of attempts remaining.
 ![display-triess](./assets/images/display-tries.png)
 
-# The Game
+# **The Game**
 
 ![game-starts](./assets/images/game-starts.png)
 - Players are greeted with the title of "Mr. Hangman" and are promt to enter a username before starting the game.
@@ -35,7 +35,7 @@ This function returns a string that represents the hangman state based on the nu
 ![win-game](./assets/images/win-game.png)
 - However, if the player guesses all the letters or guesses the word correctly, they'll recieve a message that they've won the game and are asked again if they want to continue playing or not.
 
-# Testing
+# **Testing**
 
 I manually tested this project by the follwoing:
 
@@ -43,12 +43,26 @@ I manually tested this project by the follwoing:
 - Ran through the game several times to see any unwanted bugs pop up, all clear now.
 - Tested in both the local terminal and CI Heroku terminal.
 
-## Bugs
+## **Bugs**
 
-### Solved Bugs
+### **Solved Bugs**
 
 - When I first tried out the game, it kept asking me to input a new username after every win/lose scenario which is not what I wanted. I figured out the issue was placing the input function in **def main():** was the cause, so I relocated the function to the **def play():** instead and it fixed the problem.
 
-### Remaining Bugs
+### **Remaining Bugs**
 
 - No bugs remaining.
+
+### **Deployment**
+This project was deployed using Code Institutes Mock Terminal for Heroku.
+- Steps taken for Deployment
+    - Fork or clone the repository.
+    - Created a new Heroku app.
+    - Set the buildbacks to **Python** and **NodeJS** in that order.
+    - Linked the Heroku app to the repository.
+    - Clicked **Deploy**.
+
+### Credits
+
+- Code Institute for the deployment terminal.
+- Inspiration from freeCodeCamps Hangman [tutorial](https://www.youtube.com/watch?v=8ext9G7xspg&t=1465s).
