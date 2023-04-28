@@ -10,7 +10,7 @@ def get_word():
 def play(word, username=None):
     if not username:
         username = input("Please eneter your username: ")
-        print(f"Welcome {username}! Let's play Mr. Hnagman!")
+        print(f"Welcome {username}! Let's play Mr. Hangman!")
 
     # creates the initial state of the game
     word_completion = "_" * len(word)
