@@ -1,12 +1,11 @@
 import random
-from words import word_list # contains list of words for the game in words.py
-
+# contains list of words for the game in words.py
+from words import word_list
 
 def get_word():
     # selects a random word from word_list
     word = random.choice(word_list)
     return word.upper()
-
 
 def play(word, username=None):
     if not username:
@@ -28,7 +27,7 @@ def play(word, username=None):
     # loops until teh user either guesses the word or runs out of tries
     while not guessed and tries > 0:
         guess = input("Please guess a letter or word: ").upper()
-        
+
         # checks if the guess is a letter
         if len(guess) == 1 and guess.isalpha():
             # checks if the letter has already been guessed
@@ -77,9 +76,11 @@ def play(word, username=None):
         # checks the game state after each game
         if guessed:
             print(f"Congrats {username}! You guessed the word! You Win!")
+
         elif tries == 0:
             print(display_hangman(tries))
-            print(f"Sorry {username}, you ran out of tries. The word was " + word + ". Better luck next time!")
+            print(f"Sorry {username}, you ran out of tries. The word was " + word + ".")
+
         else:
             print("You have", tries, "tries left.")
             print(display_hangman(tries))
@@ -92,9 +93,9 @@ def play(word, username=None):
 
     if replay == "Y":
         play(get_word(), username=username)
+
     else:
         print(f"Thanks for playing {username}!")
-
 
 # this function returns a string that represents the hangman state based on number of tries remaining
 def display_hangman(tries):
